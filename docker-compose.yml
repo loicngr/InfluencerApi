@@ -16,6 +16,11 @@ services:
         container_name: dreamsbird_api_php
         volumes:
           - .:/var/www/dreamsbird_api
+
     rust:
-        image: rust:latest
+        build: .docker/rust
         container_name: dreamsbird_api_rust
+        volumes:
+          - .:/var/www/dreamsbird_api
+        depends_on:
+          - php
