@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+    apache:
+        build: .docker/apache
+        container_name: dreamsbird_api_apache
+        ports:
+          - 80:80
+        volumes:
+          - .docker/config/vhosts:/etc/apache2/sites-enabled
+          - .:/var/www/dreamsbird_api
+        depends_on:
+          - php
+
+    php:
+        build: .docker/php
+        container_name: dreamsbird_api_php
+        volumes:
+          - .:/var/www/dreamsbird_api
