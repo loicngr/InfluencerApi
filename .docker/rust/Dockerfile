@@ -1,15 +1,9 @@
 FROM rust:1.41
 
-RUN apt install libssl-dev -y
-RUN apt install zlib1g-dev -y
+RUN groupadd dev -g 999
+RUN useradd dev -g dev -d /home/dev -m
 
-RUN useradd -ms /bin/bash rust
-
-USER rust
-ENV HOME /home/rust
-ENV USER rust
-ENV SHELL /bin/bash
-WORKDIR /home/rust
+WORKDIR /var/www/dreamsbird_api
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
