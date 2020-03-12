@@ -32,10 +32,10 @@ async fn main() -> std::io::Result<()> {
     };
 
     thread::spawn(move || {
-        dreamsbird::main_twitch( 43043577 , "dreamsbird".to_owned(), 120);
+        dreamsbird::main_twitch( 39116516 , "dreamsbird".to_owned(), 120);
     });
     thread::spawn(move || {
-        dreamsbird::main_youtube(youtube_channel_id, 120);
+        dreamsbird::main_youtube(youtube_channel_id, 2400);
     });
     
     info!("Starting server");
