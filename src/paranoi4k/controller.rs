@@ -1,4 +1,4 @@
-use crate::dreamsbird::{Twitch, Youtube};
+use crate::paranoi4k::{Twitch, Youtube};
 
 use std::process::Command;
 use dotenv::dotenv;

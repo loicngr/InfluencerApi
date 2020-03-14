@@ -6,7 +6,7 @@ use dotenv::dotenv;
 use listenfd::ListenFd;
 use std::{env, thread};
 
-mod dreamsbird;
+mod paranoi4k;
 mod api_error;
 
 #[actix_rt::main]
@@ -19,7 +19,7 @@ async fn main() -> std::io::Result<()> {
     let mut listenfd = ListenFd::from_env();
     let mut server = HttpServer::new(|| 
         App::new()
-            .configure(dreamsbird::init_routes)
+            .configure(paranoi4k::init_routes)
     );
 
     server = match listenfd.take_tcp_listener(0)? {
@@ -32,10 +32,10 @@ async fn main() -> std::io::Result<()> {
     };
 
     thread::spawn(move || {
-        dreamsbird::main_twitch( 39116516 , "dreamsbird".to_owned(), 120);
+        paranoi4k::main_twitch( 39116516 , "paranoi4k".to_owned(), 120);
     });
     thread::spawn(move || {
-        dreamsbird::main_youtube(youtube_channel_id, 2400);
+        paranoi4k::main_youtube(youtube_channel_id, 2400);
     });
     
     info!("Starting server");

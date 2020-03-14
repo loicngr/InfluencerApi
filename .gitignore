@@ -2,4 +2,7 @@ target
 node_modules
 .env
 Cargo.lock
-./*_data.json
+./*_twitch.json
+./*_youtube.json
+paranoi4k_twitch.json
+paranoi4k_youtube.json
