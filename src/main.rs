@@ -32,7 +32,7 @@ async fn main() -> std::io::Result<()> {
     };
 
     thread::spawn(move || {
-        paranoi4k::main_twitch( 39116516 , "paranoi4k".to_owned(), 120);
+        paranoi4k::main_twitch( 39116516 , "paranoi4ktv".to_owned(), 120);
     });
     thread::spawn(move || {
         paranoi4k::main_youtube(youtube_channel_id, 2400);
