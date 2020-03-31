@@ -32,8 +32,6 @@ impl Twitch {
             .output()
             .unwrap();
         let encoded = String::from_utf8_lossy(output.stdout.as_slice());
-        println!("{:?}", encoded);
-        println!("{:?}", encoded.len());
         let serialized: serde_json::Value = serde_json::from_str(&encoded).unwrap();
 
         let mut buffer = File::create(&self.filename).unwrap();
